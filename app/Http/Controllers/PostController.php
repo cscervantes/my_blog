@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+
 use Illuminate\Http\Request;
+
 use Auth;
 
 class PostController extends Controller
@@ -24,7 +26,9 @@ class PostController extends Controller
         //
         $posts = Post::latest()->get();
 
-        return view('posts.index',compact('posts'));
+        //$comments = \App\Comment::latest()->get();
+
+        return view('posts.index',compact(['posts']));
     }
 
     public function oldest()
@@ -71,7 +75,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
-        return view('posts.show',compact('post'));
+        //$comments = \App\Comment::latest()->get();
+        return view('posts.show',compact(['post']));
     }
 
     /**
